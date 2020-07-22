@@ -1,9 +1,8 @@
 from flask import Flask, render_template
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
 from flaskext.markdown import Markdown
-
+from sqlalchemy import MetaData
 
 naming_convention = {
     "ix": 'ix_%(column_0_label)s',
@@ -22,7 +21,6 @@ def page_not_found(e):
 
 def create_app():
     app = Flask(__name__)
-
     app.config.from_envvar('APP_CONFIG_FILE')
 
     # ORM
@@ -31,7 +29,6 @@ def create_app():
         migrate.init_app(app, db, render_as_batch=True)
     else:
         migrate.init_app(app, db)
-
     from . import models
 
     # 블루프린트
@@ -42,7 +39,6 @@ def create_app():
     app.register_blueprint(auth_views.bp)
     app.register_blueprint(comment_views.bp)
     app.register_blueprint(vote_views.bp)
-
 
     # 필터
     from .filter import format_datetime

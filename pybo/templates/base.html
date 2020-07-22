@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
     <!-- Required meta tags -->
@@ -11,27 +11,17 @@
     <title>파이보</title>
 </head>
 <body>
-<!-- 네비게이션바 -->
 {% include "navbar.html" %}
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 {% block content %}
 {% endblock %}
 <!-- 기본 템플릿 안에 삽입될 내용 End -->
 <!-- jQuery JS -->
-<script src="{{ url_for('static', filename='jquery-3.5.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
 <!-- Bootstrap JS -->
 <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
 <!-- 자바스크립트 Start -->
 {% block script %}
-<script type='text/javascript'>
-$(document).ready(function(){
-    $(".delete").on('click', function() {
-        if(confirm("정말로 삭제하시겠습니까?")) {
-            location.href = $(this).data('uri');
-        }
-    });
-});
-</script>
 {% endblock %}
 <!-- 자바스크립트 End -->
 </body>
